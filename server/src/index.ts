@@ -9,6 +9,7 @@ import { products } from "./routes/products";
 import { tx } from "./routes/tx";
 import { inventory } from "./routes/inventory";
 import { hr } from "./routes/hr";
+import { retail } from "./routes/retail";
 import { reports } from "./routes/reports";
 import { seedChartOfAccounts } from "@khaodee/db/seed";
 import { db } from "./db";
@@ -37,6 +38,7 @@ app.route("/api/products", products);
 app.route("/api/tx", tx);
 app.route("/api/inventory", inventory);
 app.route("/api/hr", hr);
+app.route("/api/retail", retail);
 app.route("/api/reports", reports);
 
 const port = Number(process.env.PORT ?? 3000);

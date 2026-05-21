@@ -358,3 +358,41 @@ export const payrollLines = sqliteTable("payroll_lines", {
   otherDeductSatang: integer("other_deduct_satang").notNull().default(0),
   netSatang: integer("net_satang").notNull(),
 });
+
+// ---------- Retail features ----------
+
+export const discounts = sqliteTable("discounts", {
+  id: text("id").primaryKey(),
+  shopId: text("shop_id").notNull().references(() => shops.id),
+  code: text("code").notNull(),
+  name: text("name").notNull(),
+  type: text("type", { enum: ["percent", "fixed"] }).notNull(),
+  value: real("value").notNull(),
+  minSubtotalSatang: integer("min_subtotal_satang").notNull().default(0),
+  validFrom: integer("valid_from", { mode: "timestamp_ms" }),
+  validTo: integer("valid_to", { mode: "timestamp_ms" }),
+  isActive: integer("is_active", { mode: "boolean" }).notNull().default(true),
+}, (t) => ({
+  shopCodeIdx: uniqueIndex("discount_code_uniq").on(t.shopId, t.code),
+}));
+
+export const giftCards = sqliteTable("gift_cards", {
+  code: text("code").primaryKey(),
+  shopId: text("shop_id").notNull().references(() => shops.id),
+  initialSatang: integer("initial_satang").notNull(),
+  remainingSatang: integer("remaining_satang").notNull(),
+  issuedAt: integer("issued_at", { mode: "timestamp_ms" }).notNull(),
+  expiresAt: integer("expires_at", { mode: "timestamp_ms" }),
+  status: text("status", { enum: ["active", "expired", "depleted", "voided"] }).notNull().default("active"),
+});
+
+export const heldBills = sqliteTable("held_bills", {
+  id: text("id").primaryKey(),
+  shopId: text("shop_id").notNull().references(() => shops.id),
+  terminalId: text("terminal_id").notNull().references(() => terminals.id),
+  customerId: text("customer_id").references(() => customers.id),
+  label: text("label"),
+  cartJson: text("cart_json").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull().default(sql`(unixepoch() * 1000)`),
+  resumedAt: integer("resumed_at", { mode: "timestamp_ms" }),
+});

@@ -15,6 +15,13 @@
       "when": 1779393211706,
       "tag": "0001_hr",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1779393692914,
+      "tag": "0002_retail",
+      "breakpoints": true
     }
   ]
 }
