@@ -141,6 +141,9 @@ importers:
       '@khaodee/db':
         specifier: workspace:*
         version: link:../packages/db
+      '@khaodee/reports':
+        specifier: workspace:*
+        version: link:../packages/reports
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3

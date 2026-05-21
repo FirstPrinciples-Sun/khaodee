@@ -12,6 +12,7 @@
   "dependencies": {
     "@khaodee/accounting": "workspace:*",
     "@khaodee/db": "workspace:*",
+    "@khaodee/reports": "workspace:*",
     "better-sqlite3": "^11.5.0",
     "drizzle-orm": "^0.36.0",
     "hono": "^4.6.0",
