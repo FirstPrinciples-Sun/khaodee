@@ -65,7 +65,7 @@
     {:else if err}
       <p style="color: var(--error)">{err}</p>
     {:else if products.length === 0}
-      <p style="color: var(--muted)">ยังไม่มีสินค้า — สร้างผ่าน admin หรือ POST /api/products</p>
+      <p style="color: var(--muted)">ยังไม่มีสินค้า — ไปเพิ่มที่หน้า <a href="/products" style="color: var(--accent)">สินค้า</a></p>
     {:else}
       <div class="product-grid">
         {#each products as p}
