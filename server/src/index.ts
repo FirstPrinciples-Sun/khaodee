@@ -4,6 +4,7 @@ import { cors } from "hono/cors";
 import { serve } from "@hono/node-server";
 import { bootstrap } from "./db";
 import { auth } from "./routes/auth";
+import { shops } from "./routes/shops";
 import { products } from "./routes/products";
 import { tx } from "./routes/tx";
 import { reports } from "./routes/reports";
@@ -29,6 +30,7 @@ app.get("/health", (c) =>
 );
 
 app.route("/api/auth", auth);
+app.route("/api/shops", shops);
 app.route("/api/products", products);
 app.route("/api/tx", tx);
 app.route("/api/reports", reports);

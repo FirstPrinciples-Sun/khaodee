@@ -16,6 +16,33 @@
     try {
       if (mode === "login") await api.login(email, password);
       else await api.register(email, password, name);
+      // Bootstrap demo shop + terminal so the cashier UI works immediately.
+      // Idempotent — no-ops if already created.
+      try {
+        await fetch("http://localhost:3000/api/shops", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: "demo-shop",
+            name: name || "ร้านสาธิต",
+            tin: "0000000000000",
+            address: "—",
+            vatRegistered: true,
+          }),
+        });
+        await fetch("http://localhost:3000/api/shops/terminals", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: "demo-terminal",
+            shopId: "demo-shop",
+            prefix: "T1",
+            name: "Terminal 1",
+          }),
+        });
+      } catch {}
       goto("/cashier");
     } catch (e: any) {
       err = e.message ?? "ผิดพลาด";
