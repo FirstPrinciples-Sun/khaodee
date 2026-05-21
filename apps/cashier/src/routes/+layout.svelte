@@ -17,6 +17,7 @@
     <a class="brand" href="/cashier">Khaodee</a>
     <a class:active={$page.url.pathname === "/cashier"} href="/cashier">ขาย</a>
     <a class:active={$page.url.pathname === "/products"} href="/products">สินค้า</a>
+    <a class:active={$page.url.pathname === "/warehouse"} href="/warehouse">คลัง</a>
     <a class:active={$page.url.pathname === "/reports"} href="/reports">รายงาน</a>
     <a class:active={$page.url.pathname === "/journal"} href="/journal">บัญชี</a>
     <span style="flex: 1"></span>
