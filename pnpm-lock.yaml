@@ -32,6 +32,9 @@ importers:
 
   packages/db:
     dependencies:
+      '@khaodee/accounting':
+        specifier: workspace:*
+        version: link:../accounting
       better-sqlite3:
         specifier: ^11.5.0
         version: 11.10.0

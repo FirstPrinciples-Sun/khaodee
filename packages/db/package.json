@@ -6,7 +6,8 @@
   "main": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./schema": "./src/schema.ts"
+    "./schema": "./src/schema.ts",
+    "./seed": "./src/seed.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -15,6 +16,7 @@
     "migrate:apply": "tsx src/migrate.ts"
   },
   "dependencies": {
+    "@khaodee/accounting": "workspace:*",
     "better-sqlite3": "^11.5.0",
     "drizzle-orm": "^0.36.0"
   },
