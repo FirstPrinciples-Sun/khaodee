@@ -89,6 +89,18 @@ importers:
         specifier: ^2.1.0
         version: 2.1.9(@types/node@20.19.41)
 
+  packages/hardware:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.10.0
+        version: 20.19.41
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9(@types/node@20.19.41)
+
   packages/reports:
     dependencies:
       '@khaodee/db':

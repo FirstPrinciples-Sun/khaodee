@@ -30,3 +30,5 @@ export function isValidPromptPayId(id: string): boolean {
   if (/^\d{13}$/.test(digits)) return isValidThaiTin(digits); // citizen ID
   return false;
 }
+
+export * from "./promptpay";
