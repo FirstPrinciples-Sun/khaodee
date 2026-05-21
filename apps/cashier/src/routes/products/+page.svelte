@@ -33,9 +33,10 @@
 
   async function add(e: Event) {
     e.preventDefault();
+    err = "";
     saving = true;
     try {
-      await fetch("http://localhost:3000/api/products", {
+      const res = await fetch("http://localhost:3000/api/products", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -43,12 +44,16 @@
           shopId: SHOP_ID,
           name: newName,
           variants: [{
-            sku: newSku || newName.toUpperCase().replace(/\s+/g, "-").slice(0, 20),
+            sku: newSku || `${newName.toUpperCase().replace(/\s+/g, "-").slice(0, 12)}-${Date.now().toString(36)}`,
             priceSatang: Math.round(newPriceBaht * 100),
             costSatang: Math.round(newCostBaht * 100),
           }],
         }),
       });
+      if (!res.ok) {
+        const body = await res.text();
+        throw new Error(`${res.status}: ${body}`);
+      }
       newName = ""; newSku = ""; newPriceBaht = 0; newCostBaht = 0;
       await load();
     } catch (e: any) {
