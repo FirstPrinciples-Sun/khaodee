@@ -19,6 +19,8 @@
     <a class:active={$page.url.pathname === "/products"} href="/products">สินค้า</a>
     <a class:active={$page.url.pathname === "/warehouse"} href="/warehouse">คลัง</a>
     <a class:active={$page.url.pathname.startsWith("/hr")} href="/hr">พนักงาน</a>
+    <a class:active={$page.url.pathname === "/customers"} href="/customers">ลูกค้า</a>
+    <a class:active={$page.url.pathname === "/promo"} href="/promo">โปรโมชั่น</a>
     <a class:active={$page.url.pathname === "/reports"} href="/reports">รายงาน</a>
     <a class:active={$page.url.pathname === "/journal"} href="/journal">บัญชี</a>
     <span style="flex: 1"></span>
