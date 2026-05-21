@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.svelte-kit/
+*.tsbuildinfo
+*.log
+.env
+.env.local
+.DS_Store
+.vscode/
+.idea/
+
+# SQLite local data
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+!packages/db/seed.db
+
+# Tauri
+target/
+src-tauri/target/
