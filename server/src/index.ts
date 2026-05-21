@@ -5,6 +5,7 @@ import { serve } from "@hono/node-server";
 import { bootstrap } from "./db";
 import { auth } from "./routes/auth";
 import { products } from "./routes/products";
+import { tx } from "./routes/tx";
 import { seedChartOfAccounts } from "@khaodee/db/seed";
 import { db } from "./db";
 
@@ -28,6 +29,7 @@ app.get("/health", (c) =>
 
 app.route("/api/auth", auth);
 app.route("/api/products", products);
+app.route("/api/tx", tx);
 
 const port = Number(process.env.PORT ?? 3000);
 serve({ fetch: app.fetch, port }, () => {
