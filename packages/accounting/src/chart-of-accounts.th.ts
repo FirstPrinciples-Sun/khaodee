@@ -39,6 +39,8 @@ export const THAI_COA: CoaEntry[] = [
   { code: "2110", nameTh: "เจ้าหนี้การค้า", nameEn: "Accounts payable", type: "liability", parentCode: "2000" },
   { code: "2151", nameTh: "ภาษีขาย (VAT Output)", nameEn: "VAT output — payable", type: "liability", parentCode: "2000" },
   { code: "2152", nameTh: "ภาษีหัก ณ ที่จ่ายค้างจ่าย", nameEn: "Withholding tax payable", type: "liability", parentCode: "2000" },
+  { code: "2153", nameTh: "ประกันสังคมค้างจ่าย", nameEn: "Social security payable", type: "liability", parentCode: "2000" },
+  { code: "2154", nameTh: "เงินเดือนค้างจ่าย", nameEn: "Salary payable", type: "liability", parentCode: "2000" },
 
   // 3xxx Equity
   { code: "3000", nameTh: "ส่วนของเจ้าของ", nameEn: "Equity", type: "equity" },
@@ -57,6 +59,10 @@ export const THAI_COA: CoaEntry[] = [
   { code: "5010", nameTh: "ต้นทุนสินค้าขาย (COGS)", nameEn: "Cost of goods sold", type: "expense", parentCode: "5000" },
   { code: "5100", nameTh: "ค่าใช้จ่ายในการขาย", nameEn: "Selling expenses", type: "expense", parentCode: "5000" },
   { code: "5200", nameTh: "ค่าใช้จ่ายในการบริหาร", nameEn: "Admin expenses", type: "expense", parentCode: "5000" },
+  { code: "5300", nameTh: "เงินเดือนและค่าจ้าง", nameEn: "Salary & wages", type: "expense", parentCode: "5000" },
+  { code: "5310", nameTh: "ค่าล่วงเวลา", nameEn: "Overtime", type: "expense", parentCode: "5000" },
+  { code: "5320", nameTh: "โบนัส", nameEn: "Bonus", type: "expense", parentCode: "5000" },
+  { code: "5330", nameTh: "เงินสมทบประกันสังคม (นายจ้าง)", nameEn: "Employer SSO contribution", type: "expense", parentCode: "5000" },
   { code: "5910", nameTh: "ผลต่างเงินสด (over/short)", nameEn: "Cash over/short", type: "expense", parentCode: "5000" },
   { code: "5990", nameTh: "ค่าใช้จ่ายเบ็ดเตล็ด", nameEn: "Miscellaneous expenses", type: "expense", parentCode: "5000" },
 ];
