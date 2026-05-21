@@ -58,6 +58,22 @@ importers:
         specifier: ^2.1.0
         version: 2.1.9(@types/node@20.19.41)
 
+  packages/reports:
+    dependencies:
+      '@khaodee/db':
+        specifier: workspace:*
+        version: link:../db
+      drizzle-orm:
+        specifier: ^0.36.0
+        version: 0.36.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.10.0)
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9(@types/node@20.19.41)
+
   server:
     dependencies:
       '@hono/node-server':
