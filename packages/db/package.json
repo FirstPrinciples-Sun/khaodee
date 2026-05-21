@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@khaodee/accounting": "workspace:*",
-    "better-sqlite3": "^11.5.0",
+    "better-sqlite3": "^12.10.0",
     "drizzle-orm": "^0.36.0"
   },
   "devDependencies": {

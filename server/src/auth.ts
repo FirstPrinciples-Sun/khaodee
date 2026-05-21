@@ -10,7 +10,7 @@ import type { Context, MiddlewareHandler } from "hono";
 import { db } from "./db";
 import { schema } from "./db";
 import { eq } from "drizzle-orm";
-import { compare, hash } from "bcryptjs";
+import bcrypt from "bcryptjs";
 import { randomBytes, randomUUID } from "node:crypto";
 
 export interface SessionUser {
@@ -31,11 +31,11 @@ const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 const sessions = new Map<string, { userId: string; expiresAt: number }>();
 
 export async function hashPassword(plain: string): Promise<string> {
-  return hash(plain, 10);
+  return bcrypt.hash(plain, 10);
 }
 
 export async function checkPassword(plain: string, hashed: string): Promise<boolean> {
-  return compare(plain, hashed);
+  return bcrypt.compare(plain, hashed);
 }
 
 export async function createUser(email: string, password: string, name: string): Promise<string> {
